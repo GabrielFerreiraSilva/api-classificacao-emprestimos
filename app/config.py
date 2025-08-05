@@ -1,9 +1,15 @@
-import os
-from dotenv import load_dotenv
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-load_dotenv()
+class Settings(BaseSettings):
+    PIPELINE_PATH: str = "random_forest_class_weight_pipeline.joblib"
 
-class Settings:
-    PIPELINE_PATH: str = os.getenv("PIPELINE_PATH", "random_forest_class_weight_pipeline.joblib")
+    APP_HOST: str = "127.0.0.1"
+    APP_PORT: int = 8000
+
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding='utf-8',
+        extra='ignore'
+    )
 
 settings = Settings()
