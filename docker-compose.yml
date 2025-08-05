@@ -1,0 +1,11 @@
+services:
+  api-emprestimos:
+    build: .
+    container_name: api_classificacao_emprestimos
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
