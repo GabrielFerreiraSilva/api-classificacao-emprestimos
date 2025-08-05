@@ -3,4 +3,4 @@ uvicorn
 pandas
 joblib
 python-dotenv
-pydantic
+pydantic-settings
